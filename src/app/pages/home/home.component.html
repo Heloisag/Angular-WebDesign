@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <h2>Informações Resumidas dos Usuários</h2>
+  <div>
+    <p>Quantidade de Usuários Cadastrados: {{ totalUsers }}</p>
+  </div>
+
+  <h2>Quantidade de Usuários por Função</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Função</th>
+        <th scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of userRoles">
+        <td>{{ role.name }}</td>
+        <td>{{ role.count }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>

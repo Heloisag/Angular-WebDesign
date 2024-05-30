@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row align-items-left text-left">
+    <div class="col content">
+      <button class="btn btn-primary mb-3" (click)="addNewUser()">Adicionar Novo Usuário</button>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Função</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userList; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm mr-1" (click)="editUser(i)">
+                  <i class="fas fa-pencil-alt"></i> Editar
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteUser(i)">
+                  <i class="fas fa-times"></i> Excluir
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
