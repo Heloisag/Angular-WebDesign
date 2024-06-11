@@ -1,10 +1,83 @@
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #6a11cb;
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  color: #333333; /* Darker text for better readability */
+}
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+/* Container Styles */
+.container {
+  min-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #f8f9fa; /* Lighter background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+@media (max-width: 500px) {
+  .container {
+    min-width: 90%;
   }
+}
+
+/* Headings Styles */
+h1 {
+  color: #2980b9; /* Primary blue for emphasis */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  color: #666666; /* Lighter grey text for labels */
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: large;
+  width: 97%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Button Styles */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn { /* Base styles for all buttons */
+  background-color: #3498db; /* Primary button color (blue) */
+}
+
+.btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff; /* Link color (blue) */
+  cursor: pointer;
+  text-decoration: none; /* Remove underline by default */
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}

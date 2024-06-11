@@ -1,4 +1,37 @@
-.full-height {
-  min-height: 100%;
-  height: 80vh;
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  color: #333333; /* Darker text for better readability */
+}
+
+/* Headings Styles */
+h1,
+h2 {
+  padding: 20px; /* Consistent padding for h1 and h2 */
+  color: #2980b9; /* Primary blue for emphasis */
+}
+
+h2 {
+  padding-top: 10px; /* Adjusted padding-top for h2 */
+}
+
+/* Paragraph Styles */
+p {
+  font-family: sans-serif;
+  color: #666666; /* Lighter grey for body text */
+}
+
+/* Table Styles */
+table {
+  padding-left: 20px;
+}
+
+th, td {
+  padding: 7px;
+  text-align: center;
+}
+
+th {
+  background-color: #e8e8e8; /* Lighter grey for table headers */
+  color: #333333; /* Darker text for better contrast */
 }

@@ -1,0 +1,85 @@
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  background-color: #f1f2f3; /* Lighter background for better readability */
+  color: #333333; /* Darker text for better contrast */
+}
+
+/* Container Styles */
+.container {
+  min-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #e8e8e8; /* Lighter container background */
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666666; /* Less intense text color */
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: large;
+  width: 97%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn { /* Base styles for all buttons */
+  background-color: #3498db; /* Primary button color (blue) */
+}
+
+.btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff; /* Link color (blue) */
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+  .container {
+    min-width: 90%;
+  }
+}
+
+/* Error Styles */
+.text-danger {
+  color: #c9302c; /* More user-friendly red for errors */
+}

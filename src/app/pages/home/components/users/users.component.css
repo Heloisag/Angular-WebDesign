@@ -1,14 +1,60 @@
-.content {
-  background-color: #fff;
-  padding: 60px;
-  min-height: 100%;
-  height: 90vh;
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  color: #333333; /* Darker text for better readability */
 }
 
-.table-item {
+/* H1 Heading Style */
+h1 {
+  padding: 20px;
+  color: #3498db; /* Lighter blue for headings */
+}
+
+/* Table Styles */
+table {
+  padding-left: 20px;
+}
+
+th, td {
+  font-family: sans-serif;
+  padding: 7px;
+  text-align: center;
+}
+
+th {
+  background-color: #2980b9; /* Primary blue for table header */
+  color: #fff; /* White text for better contrast */
+}
+
+/* Action Button Styles (Base) */
+.action-button {
+  margin-right: 5px;
+  background-color: #3498db; /* Lighter blue for action buttons */
+  color: #fff;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 5px;
   cursor: pointer;
+  position: relative;
 }
 
-.task-done {
-  text-decoration: line-through;
+.action-button i {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  transform: translateY(-50%);
+}
+
+/* Edit Button Style (variant of action-button) */
+.action-button.edit i {
+  color: #fff; /* White icon for better contrast */
+  background-color: #2980b9; /* Primary blue for edit icon background */
+  border-radius: 50%;
+  padding: 5px;
+}
+
+/* Primary Button Style (inherits from action-button) */
+.btn-primary {
+  inherit: all; /* Inherits properties from action-button */
+  background-color: #2980b9; /* Primary blue for primary buttons */
 }

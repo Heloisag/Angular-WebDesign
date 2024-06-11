@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +9,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   loginForm: FormGroup;
-  invalidUser: boolean = false;
 
-  constructor(private router: Router) {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-    })
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {
+    this.loginForm = this.formBuilder.group({
+      user: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  login() {
-
-    if(this.loginForm.value['email'] == "admin@gmail.com" && this.loginForm.value['password'] == "admin") {
-      this.router.navigate(["/app"])
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { user, password } = this.loginForm.value;
+      this.loginService.login(user, password).subscribe(
+        () => {
+          this.router.navigate(['/app']);
+        },
+        () => {
+          alert('Usuário ou senha estão incorretos!');
+          this.resetForm();
+        }
+      );
     } else {
-      this.invalidUser = true;
+      alert('Por favor, preencha todos os campos.');
     }
+  }
 
+  resetForm() {
+    this.loginForm.reset();
+  }
+
+  goToSignup() {
+    this.router.navigate(['/signup']);
   }
 }

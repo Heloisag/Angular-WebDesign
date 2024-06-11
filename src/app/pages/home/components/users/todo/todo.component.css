@@ -1,0 +1,56 @@
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  color: #333333; /* Darker text for better readability */
+}
+
+/* Table Styles */
+table {
+  padding-left: 20px;
+}
+
+th, td {
+  font-family: sans-serif;
+  padding: 7px;
+  text-align: center;
+}
+
+th {
+  background-color: #2980b9; /* Primary blue for table header */
+  color: #fff; /* White text for better contrast */
+}
+
+/* Task Table Styles */
+.task-table {
+  width: 80%; /* Adjust width as needed */
+  border-collapse: collapse;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* Table Container Styles */
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Action Button Styles */
+.action-button {
+  margin-right: 5px;
+  background-color: #3498db; /* Lighter blue for action buttons */
+  color: #fff;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.action-button i {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  transform: translateY(-50%);
+}

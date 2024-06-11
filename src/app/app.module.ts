@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtModule } from '@auth0/angular-jwt';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './pages/home/components/navbar/navbar.component';
-import { RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/home/components/users/users.component';
-import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './pages/home/components/welcome/welcome.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TodoListComponent } from './pages/home/pages/todo-list/todo-list.component';
-import { AddUserComponent } from './pages/home/components/add-user/add-user.component';
-import { EditUserComponent } from './pages/home/components/edit-user/edit-user.component';
+import { RouterModule } from '@angular/router';
+import { AddUserComponent } from './pages/home/components/users/add-user/add-user.component';
+import { EditUserComponent } from './pages/home/components/users/edit-user/edit-user.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { TodoComponent } from './pages/home/components/users/todo/todo.component';
+import { AuthGuardService } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,18 +28,28 @@ import { EditUserComponent } from './pages/home/components/edit-user/edit-user.c
     NavbarComponent,
     UsersComponent,
     WelcomeComponent,
-    TodoListComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('accessToken'),
+        allowedDomains: ['localhost'],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withFetch()),
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

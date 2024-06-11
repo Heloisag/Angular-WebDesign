@@ -1,0 +1,36 @@
+ul {
+  position: sticky;
+  position: -webkit-sticky; /* Webkit compatibility for older browsers */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3498db; /* New background color */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.active {
+  background-color: #2ecc71; /* New active color */
+}
+
+li {
+  float: left;
+}
+
+li a {
+  font-family: 'Open Sans', sans-serif; /* New font family */
+  font-weight: bold; /* Text in bold */
+  display: block;
+  color: #f1f1f1; /* New text color */
+  text-align: center;
+  padding: 18px 25px; /* Increased padding */
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+}
+
+li a:hover {
+  background-color: #2ecc71; /* New background hover color */
+  color: #ffffff; /* New text hover color */
+}

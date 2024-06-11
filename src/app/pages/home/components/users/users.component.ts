@@ -1,37 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-interface User {
-  name: string;
-  email: string;
-  role: string;
-}
+import { UserService, User } from './users.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent {
-  userList: User[] = [];
+export class UsersComponent implements OnInit {
+  users: User[] = [];
+  isLoading = true;
 
-  constructor(private router: Router) {
-    this.userList = [
-      { name: 'John Doe', email: 'Heloisa@example.com', role: 'Engenheiro de FE' },
-      { name: 'Marcelo Gennari', email: 'Marcelo@example.com', role: 'Analista de dados' },
-      { name: 'Nicolas Martins', email: 'Nicolas@example.com', role: 'Líder Técnico' },
-    ];
+  constructor(
+    private router: Router,
+    private userService: UserService 
+  ) { }
+
+  ngOnInit(): void {
+    this.loadUsers();
   }
 
-  addNewUser() {
-    this.router.navigate(['/app/add-user']);
+  loadUsers(): void {
+    this.userService.fetchUsers().subscribe(
+      (users: any) => {
+        console.log(users)
+        this.users = users;
+        this.isLoading = false;
+      },
+      error => {
+        console.error('Error fetching users:', error);
+        this.isLoading = false;
+      }
+    );
   }
 
-  editUser(index: number) {
-    this.router.navigate(['/app/edit-user']);
+  removeUser(username: string) {
+    this.userService.deleteUser(username).subscribe(
+      () => {
+        this.users = this.users.filter(user => user.username !== username)
+        console.log('User deleted successfully!')
+      },
+      (error) => {
+        console.error('Error deleting user: ', error)
+      }
+    )
   }
 
-  deleteUser(index: number) {
-    this.userList.splice(index, 1);
+  editUser(id: number, user: string, email: string, role: string) {
+    this.router.navigate(['/app/users/edit', { id: id, user: user, email: email, role: role }]);
   }
 }
